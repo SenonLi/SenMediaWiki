@@ -1,0 +1,24 @@
+table {
+  overflow: hidden;
+  border: 1px solid black;
+/*  background-color: #F5F5F5;*/
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/*tr, th {*/
+/*  position: relative;*/
+/*}*/
+
+/*tr:hover::after {*/
+/*  content: "";*/
+/*  position: absolute;*/
+/*  background-color: #F5F5F5;*/
+/*  left: 0;*/
+/*  top: -5000px;*/
+/*  height: 10000px;*/
+/*  width: 100%;*/
+/*  z-index: -1;*/
+/*}*/
