@@ -1,9 +1,11 @@
 <?php
+$releaseName = $_GET['releaseName']; 
+
 // Get a connection for the database
 require_once('mySqlConnect.php');
 
 // Create a query for the database
-$sourceCodeQuery = "SELECT id, name, description, buildInstruction, location FROM huawei_sourceCodeRepo ORDER BY name";
+$sourceCodeQuery = "SELECT id, projectName, path, description, cloneCommand FROM huawei_projectRepo WHERE releaseName = '$releaseName' ORDER BY projectName";
 
 #echo "$employeeQuery <br/><br/>";
 
@@ -16,16 +18,20 @@ if($response){
 
 	echo '<link href="sourceCodeTableStyle.css" rel="stylesheet">';
 	
-	echo '<p><a href="http://localhost/addNewSourceCode.php" target="_blank">New Source Code Repo</a>
+	echo '<p><a href="http://localhost/addNewProject.php" target="_blank">New Project</a>
 		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/getSourceCodeReposDelete.php" >Enable Delete</a>
-		</p><br/>';
+		<a href="http://localhost/displayProjectsByReleaseDelete.php?releaseName=' . $releaseName . '" >Enable Delete</a>
+		</p>';
+
+	echo '<p>Projects Under Release <font color="red">' . $releaseName . '</font> </a>
+		</p>';
 
 	// Draw the table
-	echo '<table class="hover" align="left" cellspacing="0" cellpadding="10">
+	echo '<table class="css-serial" align="left" cellspacing="0" cellpadding="10">
 		<tr>
-			<td align = "left">	<b>Name	</b> </td>		
-			<td align = "left">	<b>Description  </b> </td>
+			<th align = "left">	<b>#</b> </th>		
+			<th align = "left">	<b>Project Name	</b> </th>		
+			<th align = "left">	<b>Description  </b> </th>
 		</tr>';
 
 	// mysqli_fetch_array will return a row of data from the query
@@ -33,7 +39,8 @@ if($response){
 	while($row = mysqli_fetch_array($response))	{
 
 	    echo   '<tr>
-			<td align = "left"><a href="http://localhost/displayExistingSourceCode.php?id=',urlencode($row["id"]),'" target="_blank" style="text-decoration:none">' . $row['name'] . '</a></td>
+			<td></td>
+			<td align = "left"><a href="http://localhost/displayExistingProject.php?id=',urlencode($row["id"]),'" target="_blank" style="text-decoration:none">' . $row['projectName'] . '</a></td>
 			<td align = "left"><textarea disabled type="text" name="descriptionInput" rows="5" cols="70">' . $row['description'] . '</textarea></td>
 		   </tr>';
 	}

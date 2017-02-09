@@ -24,11 +24,10 @@ if(isset($_POST['submitButton']))	{
 		$projectName = trim($_POST['projectNameInput']);
 	}
 
-	if(empty($_POST['pathInput']))	{
-		$data_missing[] = 'First Name';
+	if(empty($_POST['patchNameInput']))	{
+		$data_missing[] = 'Patch Name';
 	} else 	{
-		$path = trim($_POST['pathInput']);
-		$_path = str_replace(array('\\', "\0", "\n", "\r", "'", '"', "\x1a"), array('\\\\', '\\0', '\\n', '\\r', "\\'", '\\"', '\\Z'), $path);
+		$patchName = trim($_POST['patchNameInput']);
 	}
 
 
@@ -40,29 +39,13 @@ if(isset($_POST['submitButton']))	{
 #		echo "description =$description<br/>, _description = $_description<br/>";
 	}
 
-#	if(empty($_POST['patchesInput']))	{
-#		$data_missing[] = 'Patches Info';
-#	} else 	{
-#		$patches = trim($_POST['patchesInput']);
-#		$_patches = str_replace(array('\\', "\0", "\n", "\r", "'", '"', "\x1a"), array('\\\\', '\\0', '\\n', '\\r', "\\'", '\\"', '\\Z'), $patches);
-
-#	}
-
-	if(empty($_POST['cloneCommandInput']))	{
-		$data_missing[] = 'Clone Command';
-	} else 	{
-		$cloneCommand = trim($_POST['cloneCommandInput']);
-		$_cloneCommand = str_replace(array('\\', "\0", "\n", "\r", "'", '"', "\x1a"), array('\\\\', '\\0', '\\n', '\\r', "\\'", '\\"', '\\Z'), $cloneCommand);
-	}
-
-
 
 
 	if(empty($data_missing))	{
 		
 		require_once('mySqlConnect.php');
 		
-		$updateQuery = "UPDATE huawei_projectRepo SET releaseName='$releaseName', projectName='$projectName', path='$_path', description='$_description', cloneCommand='$_cloneCommand' WHERE id='$id'";
+		$updateQuery = "UPDATE huawei_projectPatches SET releaseName='$releaseName', projectName='$projectName', patchName='$patchName', description='$_description' WHERE id='$id'";
 
 #	$updateQuery = sprintf("UPDATE huawei_projectRepo SET projectName='$projectName', description='$description' WHERE id='$id'");	
 #		echo "$updateQuery <br/><br/>";
@@ -73,7 +56,7 @@ if(isset($_POST['submitButton']))	{
 		$affected_rows = mysqli_stmt_affected_rows($statement);
 		if($affected_rows == 1)	{
 
-			echo "Project <font color=\"red\">$projectName</font> Updated! <br/><br/>";
+			echo "Patch <font color=\"red\">$patchName</font> Updated! <br/><br/>";
 			mysqli_stmt_close($statement);
 			mysqli_close($dataBaseConnection);
 
@@ -107,21 +90,19 @@ if(isset($_POST['submitButton']))	{
 
 ?>
 
-<form action="http://localhost/submitEditedProject.php?id=<?php echo $id ?>" method="post">
+<form action="http://localhost/submitEditedPatch.php?id=<?php echo $id ?>" method="post">
 
 	<P>
-		<b>Edit Project <font color="red"><?php echo "$projectName"  ?> </font></b>
+		<b>Edit Patch <font color="red"><?php echo "$patchName"  ?> </font></b>
 		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/displayExistingProject.php?id=<?php echo $id ?>" method="post">Disable Edit</a>
+		<a href="http://localhost/displayExistingPatch.php?id=<?php echo $id ?>" method="post">Disable Edit</a>
 	</p>
 
 	<p> Release Name:  <input type="text" name="releaseNameInput" size="30" value="<?php echo $releaseName ?>"/> </p>
 	<p> Project Name:  <input type="text" name="projectNameInput" size="30" value="<?php echo $projectName ?>"/> </p>
-	<p> Path:  <input type="text" name="pathInput" size="70" value="<?php echo $path ?>"/> </p>
-	<p> Clone Command:  <input type="text" name="cloneCommandInput" size="70" value="<?php echo $cloneCommand ?>"/> </p>
-	<p> Description:</p>
+	<p> Patch Name:  <input type="text" name="patchNameInput" size="30" value="<?php echo $patchName ?>"/> </p>
+	<p> Description: </p>
 	<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea type="text" name="descriptionInput" rows="6" cols="70"><?php echo $description ?></textarea> </p>
-
 
 	<p>	
 		<input type="submit" name="submitButton" value="Update" />

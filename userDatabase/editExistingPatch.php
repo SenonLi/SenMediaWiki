@@ -11,7 +11,7 @@ $id = $_GET['id'];
 require_once('mySqlConnect.php');
 
 // Create a query for the database
-$projectQuery = "SELECT releaseName, projectName, path, description, cloneCommand FROM huawei_projectRepo WHERE id='$id' ORDER BY projectName";
+$projectQuery = "SELECT releaseName, projectName, patchName, description FROM huawei_projectPatches WHERE id='$id' ORDER BY projectName";
 
 #	echo "$projectQuery";
 
@@ -27,11 +27,8 @@ if($response){
 	while($row = mysqli_fetch_array($response))	{
 		$releaseName = $row['releaseName'];
 		$projectName = $row['projectName']; 
-		$path = $row['path']; 
+		$patchName = $row['patchName']; 
 		$description = $row['description']; 
-#		$patches = $row['patches']; 
-		$cloneCommand = $row['cloneCommand']; 
-
 	}
 	
 #	echo "$description <br/><br/>";
@@ -52,21 +49,19 @@ mysqli_close($databaseConnection);
 ?>
 
 
-<form action="http://localhost/submitEditedProject.php?id=<?php echo $id ?>" method="post">
+<form action="http://localhost/submitEditedPatch.php?id=<?php echo $id ?>" method="post">
 
 	<P>
-		<b>Edit Project <font color="red"><?php echo "$projectName"  ?> </font></b>
+		<b>Edit Patch <font color="red"><?php echo "$patchName"  ?> </font></b>
 		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/displayExistingProject.php?id=<?php echo $id ?>" method="post">Disable Edit</a>
+		<a href="http://localhost/displayExistingPatch.php?id=<?php echo $id ?>" method="post">Disable Edit</a>
 	</p>
 
 	<p> Release Name:  <input type="text" name="releaseNameInput" size="30" value="<?php echo $releaseName ?>"/> </p>
 	<p> Project Name:  <input type="text" name="projectNameInput" size="30" value="<?php echo $projectName ?>"/> </p>
-	<p> Path:  <input type="text" name="pathInput" size="70" value="<?php echo $path ?>"/> </p>
-	<p> Clone Command:  <input type="text" name="cloneCommandInput" size="70" value="<?php echo $cloneCommand ?>"/> </p>
+	<p> Patch Name:  <input type="text" name="patchNameInput" size="30" value="<?php echo $patchName ?>"/> </p>
 	<p> Description: </p>
 	<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea type="text" name="descriptionInput" rows="6" cols="70"><?php echo $description ?></textarea> </p>
-
 
 
 	<p>	

@@ -3,7 +3,7 @@
 require_once('mySqlConnect.php');
 
 // Create a query for the database
-$employeeQuery = "SELECT id, projectName, path, description, cloneCommand FROM huawei_projectRepo ORDER BY projectName";
+$employeeQuery = "SELECT DISTINCT model FROM huawei_releaseView ORDER BY model";
 
 #echo "$employeeQuery <br/><br/>";
 
@@ -14,26 +14,32 @@ $response = @mysqli_query($databaseConnection, $employeeQuery);
 // If the query executed properly proceed
 if($response){
 
-	echo '<link href="employeeTableStyle.css" rel="stylesheet">';
+	echo '<link href="sourceCodeTableStyle.css" rel="stylesheet">';
 	
-	echo '<p><a href="http://localhost/addNewProject.php" target="_blank">Add a New Project</a>
-		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/getProjectReposDelete.php" >Enable Delete</a>
-		</p><br/>';
+	echo '<p><a href="http://localhost/addNewRelease.php" target="_blank">Add a New Release</a>
+		</p>';
+
+	echo '<p>Check releases by selecting a model:
+		</p>';
 
 	// Draw the table
-	echo '<table class="hover" align="left" cellspacing="0" cellpadding="10">';
+	echo '<table class="css-serial" align="left" border="1" cellspacing="0" cellpadding="10">
+		<thead><tr>
+			<th align = "left">	<b>#</b> </th>		
+			<th align = "left">	<b>Model Name	</b> </th>		
+		</tr></thead><tbody>';
 
 	// mysqli_fetch_array will return a row of data from the query
 	// until no further data is available
 	while($row = mysqli_fetch_array($response))	{
 
 	    echo   '<tr>
-			<td align = "left"><a href="http://localhost/displayExistingProject.php?id=',urlencode($row["id"]),'" target="_blank" style="text-decoration:none">' . $row['projectName'] . '</a></td>
+			<td></td>
+			<td align = "left"><a href="http://localhost/displayReleaseUnderModel.php?model=',urlencode($row["model"]),'" style="text-decoration:none">' . $row['model'] . '</a></td>
 		   </tr>';
 	}
 
-	echo '</table>';
+	echo '</tbody></table>';
 
 } else {
 

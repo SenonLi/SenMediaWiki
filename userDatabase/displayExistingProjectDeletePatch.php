@@ -82,6 +82,8 @@ mysqli_close($databaseConnection);
 		<b>Edit Project <font color="red"><?php echo "$projectName"  ?> </font></b>
 		&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="http://localhost/editExistingProject.php?id=<?php echo $id ?>" method="post">Enable Edit</a>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	(Tip: Refresh after every edit!)
 	</p>
 
 	<p> Release Name:  <input disabled type="text" name="releaseNameInput" size="30" value="<?php echo $releaseName ?>"/> </p>
@@ -91,10 +93,11 @@ mysqli_close($databaseConnection);
 	<p> Description: </p>
 	<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea disabled type="text" name="descriptionInput" rows="6" cols="70"><?php echo $description ?></textarea> </p>
 	<p> Patches: </p>
+
 	<dir style="width: 100%; ">
 		<p><a href="http://localhost/addNewPatch.php" target="_blank">Add a New Patch</a>
 			&nbsp;&nbsp;&nbsp;&nbsp;
-			<a href="http://localhost/displayExistingProjectDeletePatch.php?id=<?php echo $id ?>" >Enable Patch Delete</a>
+			<a href="http://localhost/displayExistingProject.php?id=<?php echo $id ?>" >Disable Patch Delete</a>
 		</p>
 	</dir>
 
@@ -106,6 +109,7 @@ mysqli_close($databaseConnection);
 			<th align = "left">	<b>#</b> </th>		
 			<th align = "left">	<b>Patch Name	</b> </th>		
 			<th align = "left">	<b>Description  </b> </th>
+			<th align = "left">	<b>Remove  </b> </th>
 		</tr></thead>
 		<tbody>
 	<?php 
@@ -122,10 +126,9 @@ mysqli_close($databaseConnection);
 					-->
 					<td align = "left"><a href="http://localhost/displayExistingPatch.php?id=',urlencode($patchRow["id"]),'" target="_blank" style="text-decoration:none">' . $patchRow['patchName'] . '</a></td>
 					<td align = "left"><textarea disabled type="text" name="descriptionInput" rows="3" cols="70">' . $patchRow['description'] . '</textarea></td>
+					<td align = "left"><a href="http://localhost/deletePatch.php?id=',urlencode($patchRow["id"]),'" style="text-decoration:none, float:center">Delete</a></td>
 				   </tr>';
-#			    echo   '<tr>
-#					<td align = "left"><textarea disabled type="text" name="descriptionInput" rows="5" cols="70">' . $patchRow['description'] . '</textarea></td>
-#				   </tr>';
+
 
 			}
 	
@@ -140,8 +143,6 @@ mysqli_close($databaseConnection);
 	</table>
 	</dir>
 	<!--Meliodas-->
-
-
 
 
 </form>

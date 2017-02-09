@@ -3,7 +3,7 @@
 require_once('mySqlConnect.php');
 
 // Create a query for the database
-$sourceCodeQuery = "SELECT id, name, description, buildInstruction, location FROM huawei_sourceCodeRepo ORDER BY name";
+$sourceCodeQuery = "SELECT id, name, description, instruction, tag FROM huawei_releasedImages ORDER BY name";
 
 #echo "$employeeQuery <br/><br/>";
 
@@ -16,9 +16,9 @@ if($response){
 
 	echo '<link href="sourceCodeTableStyle.css" rel="stylesheet">';
 	
-	echo '<p><a href="http://localhost/addNewSourceCode.php" target="_blank">New Source Code Repo</a>
+	echo '<p><a href="http://localhost/addNewReleasedImage.php" target="_blank">New Released Image</a>
 		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/getSourceCodeReposDelete.php" >Enable Delete</a>
+		<a href="http://localhost/getImageInfo.php" >Disable Delete</a>
 		</p><br/>';
 
 	// Draw the table
@@ -33,8 +33,9 @@ if($response){
 	while($row = mysqli_fetch_array($response))	{
 
 	    echo   '<tr>
-			<td align = "left"><a href="http://localhost/displayExistingSourceCode.php?id=',urlencode($row["id"]),'" target="_blank" style="text-decoration:none">' . $row['name'] . '</a></td>
+			<td align = "left"><a href="http://localhost/displayExistingImage.php?id=',urlencode($row["id"]),'" target="_blank" style="text-decoration:none">' . $row['name'] . '</a></td>
 			<td align = "left"><textarea disabled type="text" name="descriptionInput" rows="5" cols="70">' . $row['description'] . '</textarea></td>
+			<td align = "left"><a href="http://localhost/deleteReleasedImage.php?id=',urlencode($row["id"]),'" style="text-decoration:none, float:center">Delete</a></td>
 		   </tr>';
 	}
 

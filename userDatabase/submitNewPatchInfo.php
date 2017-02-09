@@ -1,7 +1,7 @@
 <html>
 
 <head>
-<title>New Project Added</title>
+<title>New Patch Added</title>
 </head>
 
 <body>
@@ -23,12 +23,12 @@ if(isset($_POST['submitButton']))	{
 		$projectName = trim($_POST['projectNameInput']);
 	}
 
-
-	if(empty($_POST['pathInput']))	{
-		$data_missing[] = 'Path';
+	if(empty($_POST['patchNameInput']))	{
+		$data_missing[] = 'Patch Name';
 	} else 	{
-		$path = trim($_POST['pathInput']);
+		$patchName = trim($_POST['patchNameInput']);
 	}
+
 
 	if(empty($_POST['descriptionInput']))	{
 		$data_missing[] = 'Description';
@@ -36,45 +36,29 @@ if(isset($_POST['submitButton']))	{
 		$description = trim($_POST['descriptionInput']);
 	}
 
-#	if(empty($_POST['patchesInput']))	{
-#		$data_missing[] = 'Patches Info';
-#	} else 	{
-#		$patches = trim($_POST['patchesInput']);
-#	}
-
-	if(empty($_POST['cloneCommandInput']))	{
-		$data_missing[] = 'Clone Command';
-	} else 	{
-		$cloneCommand = trim($_POST['cloneCommandInput']);
-	}
-
-
-
 
 
 	if(empty($data_missing))	{
 		
 		require_once('mySqlConnect.php');
 		
-		$insertQuery = "INSERT INTO huawei_projectRepo (releaseName, projectName, path, description,  cloneCommand) VALUES (?, ?, ?, ?, ?)";
+		$insertQuery = "INSERT INTO huawei_projectPatches (releaseName, projectName, patchName, description) VALUES (?, ?, ?, ?)";
 
 		$statement = mysqli_prepare($databaseConnection, $insertQuery);	
-		mysqli_stmt_bind_param($statement, "sssss", $releaseName, $projectName, $path, $description, $cloneCommand );
+		mysqli_stmt_bind_param($statement, "ssss", $releaseName, $projectName, $patchName, $description);
 		mysqli_stmt_execute($statement);
 		
 		$affected_rows = mysqli_stmt_affected_rows($statement);
 		if($affected_rows == 1)	{
 
-			echo "New Project <font color=\"red\">$projectName</font> Entered! <br/><br/>";
+			echo "New Patch <font color=\"red\">$patchName</font> Entered! <br/><br/>";
 			mysqli_stmt_close($statement);
 			mysqli_close($dataBaseConnection);
 
 			$releaseName = "";
 			$projectName = "";
-			$path = "";
+			$patchName = "";
 			$description = "";
-#			$patches = "";
-			$cloneCommand = "";
 		} else {
 
 			echo 'Error Occurred <br />';
@@ -101,16 +85,15 @@ if(isset($_POST['submitButton']))	{
 
 ?>
 
-<form action="http://localhost/submitNewProjectInfo.php" method="post">
+<form action="http://localhost/submitNewPatchInfo.php" method="post">
 
-	<b>Add a New Project</b>
+	<b>Add a New Patch</b>
 
 	<p> Release Name:  <input type="text" name="releaseNameInput" size="30" value=""/> </p>
 	<p> Project Name:  <input type="text" name="projectNameInput" size="30" value=""/> </p>
-	<p> Path:  <input type="text" name="pathInput" size="70" value=""/> </p>
+	<p> Patch Name:  <input type="text" name="patchNameInput" size="30" value=""/> </p>
 	<p> Description: </p>
 	<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea type="text" name="descriptionInput" rows="6" cols="70" value=""></textarea> </p>
-	<p> Clone Command:  <input type="text" name="cloneCommandInput" size="70" value=""/> </p>
 
 
 	<p>	

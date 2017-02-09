@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Edit Project</title>
+<title>Edit Image</title>
 </head>
 <body>
 
@@ -11,7 +11,7 @@ $id = $_GET['id'];
 require_once('mySqlConnect.php');
 
 // Create a query for the database
-$projectQuery = "SELECT releaseName, projectName, path, description, cloneCommand FROM huawei_projectRepo WHERE id='$id' ORDER BY projectName";
+$projectQuery = "SELECT name, description, instruction, tag FROM huawei_releasedImages WHERE id='$id' ORDER BY name";
 
 #	echo "$projectQuery";
 
@@ -25,12 +25,10 @@ if($response){
 	// mysqli_fetch_array will return a row of data from the query
 	// until no further data is available
 	while($row = mysqli_fetch_array($response))	{
-		$releaseName = $row['releaseName'];
-		$projectName = $row['projectName']; 
-		$path = $row['path']; 
+		$name = $row['name']; 
 		$description = $row['description']; 
-#		$patches = $row['patches']; 
-		$cloneCommand = $row['cloneCommand']; 
+		$instruction = $row['instruction']; 
+		$tag = $row['tag']; 
 
 	}
 	
@@ -45,33 +43,30 @@ if($response){
 mysqli_close($databaseConnection);
 
 
-
-
 #echo "user_name = $user_name <br/><br/>";
 
 ?>
 
 
-<form action="http://localhost/submitEditedProject.php?id=<?php echo $id ?>" method="post">
+<form action="http://localhost/submitEditedImage.php?id=<?php echo $id ?>" method="post">
 
 	<P>
-		<b>Edit Project <font color="red"><?php echo "$projectName"  ?> </font></b>
-		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/displayExistingProject.php?id=<?php echo $id ?>" method="post">Disable Edit</a>
+		<b>Edit Image <font color="red"><?php echo "$name"  ?> </font></b>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="http://localhost/displayExistingImage.php?id=<?php echo $id ?>" method="post">Disable Edit</a>
 	</p>
 
-	<p> Release Name:  <input type="text" name="releaseNameInput" size="30" value="<?php echo $releaseName ?>"/> </p>
-	<p> Project Name:  <input type="text" name="projectNameInput" size="30" value="<?php echo $projectName ?>"/> </p>
-	<p> Path:  <input type="text" name="pathInput" size="70" value="<?php echo $path ?>"/> </p>
-	<p> Clone Command:  <input type="text" name="cloneCommandInput" size="70" value="<?php echo $cloneCommand ?>"/> </p>
+	<p> Name:  <input type="text" name="nameInput" size="30" value="<?php echo $name ?>"/> </p>
 	<p> Description: </p>
 	<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea type="text" name="descriptionInput" rows="6" cols="70"><?php echo $description ?></textarea> </p>
-
-
+	<p> Instruction: </p>
+	<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea type="text" name="instructionInput" rows="6" cols="70"><?php echo $instruction ?></textarea> </p>
+	<p> Path:  <input type="text" name="tagInput" size="70" value="<?php echo $tag ?>"/> </p>
 
 	<p>	
 		<input type="submit" name="submitButton" value="Update" />
 	</p>
+
 </form>
 </body>
 </html>
