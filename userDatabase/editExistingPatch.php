@@ -49,12 +49,12 @@ mysqli_close($databaseConnection);
 ?>
 
 
-<form action="http://localhost/submitEditedPatch.php?id=<?php echo $id ?>" method="post">
+<form action="http://10.122.38.71/submitEditedPatch.php?id=<?php echo $id ?>" method="post">
 
 	<P>
 		<b>Edit Patch <font color="red"><?php echo "$patchName"  ?> </font></b>
 		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/displayExistingPatch.php?id=<?php echo $id ?>" method="post">Disable Edit</a>
+		<a href="http://10.122.38.71/displayExistingPatch.php?id=<?php echo $id ?>" method="post">Disable Edit</a>
 	</p>
 
 	<p> Release Name:  <input type="text" name="releaseNameInput" size="30" value="<?php echo $releaseName ?>"/> </p>

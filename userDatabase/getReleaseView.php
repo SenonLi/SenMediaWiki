@@ -16,7 +16,7 @@ if($response){
 
 	echo '<link href="sourceCodeTableStyle.css" rel="stylesheet">';
 	
-	echo '<p><a href="http://localhost/addNewRelease.php" target="_blank">Add a New Release</a>
+	echo '<p><a href="http://10.122.38.71/addNewRelease.php" target="_blank">Add a New Release</a>
 		</p>';
 
 	echo '<p>Check releases by selecting a model:
@@ -35,7 +35,7 @@ if($response){
 
 	    echo   '<tr>
 			<td></td>
-			<td align = "left"><a href="http://localhost/displayReleaseUnderModel.php?model=',urlencode($row["model"]),'" style="text-decoration:none">' . $row['model'] . '</a></td>
+			<td align = "left"><a href="http://10.122.38.71/displayReleaseUnderModel.php?model=',urlencode($row["model"]),'" style="text-decoration:none">' . $row['model'] . '</a></td>
 		   </tr>';
 	}
 

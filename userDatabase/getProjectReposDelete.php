@@ -16,9 +16,9 @@ if($response){
 
 	echo '<link href="employeeTableStyle.css" rel="stylesheet">';
 	
-	echo '<p><a href="http://localhost/addNewProject.php" target="_blank">Add a New Project</a>
+	echo '<p><a href="http://10.122.38.71/addNewProject.php" target="_blank">Add a New Project</a>
 		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/getProjectRepos.php" >Disable Delete</a>
+		<a href="http://10.122.38.71/getProjectRepos.php" >Disable Delete</a>
 		</p><br/>';
 
 	// Draw the table
@@ -29,8 +29,8 @@ if($response){
 	while($row = mysqli_fetch_array($response))	{
 
 	    echo   '<tr>
-			<td align = "left"><a href="http://localhost/editExistingProject.php?id=',urlencode($row["id"]),'" target="_blank" style="text-decoration:none">' . $row['projectName'] . '</a></td>
-			<td align = "left"><a href="http://localhost/deleteProject.php?id=',urlencode($row["id"]),'" style="text-decoration:none, float:center">Delete</a></td>
+			<td align = "left"><a href="http://10.122.38.71/editExistingProject.php?id=',urlencode($row["id"]),'" target="_blank" style="text-decoration:none">' . $row['projectName'] . '</a></td>
+			<td align = "left"><a href="http://10.122.38.71/deleteProject.php?id=',urlencode($row["id"]),'" style="text-decoration:none, float:center">Delete</a></td>
 		   </tr>';
 	}
 

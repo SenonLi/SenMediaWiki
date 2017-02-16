@@ -18,9 +18,9 @@ if($response){
 
 	echo '<link href="sourceCodeTableStyle.css" rel="stylesheet">';
 	
-	echo '<p><a href="http://localhost/addNewProject.php" target="_blank">New Project</a>
+	echo '<p><a href="http://10.122.38.71/addNewProject.php" target="_blank">New Project</a>
 		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/displayProjectsByRelease.php?releaseName=' . $releaseName . '" >Disable Delete</a>
+		<a href="http://10.122.38.71/displayProjectsByRelease.php?releaseName=' . $releaseName . '" >Disable Delete</a>
 		</p>';
 
 	echo '<p>Projects Under Release <font color="red">' . $releaseName . '</font> </a>
@@ -40,9 +40,9 @@ if($response){
 
 	    echo   '<tr>
 			<td></td>
-			<td align = "left"><a href="http://localhost/displayExistingProject.php?id=',urlencode($row["id"]),'" target="_blank" style="text-decoration:none">' . $row['projectName'] . '</a></td>
+			<td align = "left"><a href="http://10.122.38.71/displayExistingProject.php?id=',urlencode($row["id"]),'" target="_blank" style="text-decoration:none">' . $row['projectName'] . '</a></td>
 			<td align = "left"><textarea disabled type="text" name="descriptionInput" rows="5" cols="70">' . $row['description'] . '</textarea></td>
-			<td align = "left"><a href="http://localhost/deleteProject.php?id=',urlencode($row["id"]),'" style="text-decoration:none, float:center">Delete</a></td>
+			<td align = "left"><a href="http://10.122.38.71/deleteProject.php?id=',urlencode($row["id"]),'" style="text-decoration:none, float:center">Delete</a></td>
 		   </tr>';
 	}
 

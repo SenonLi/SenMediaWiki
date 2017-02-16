@@ -16,9 +16,9 @@ if($response){
 
 	echo '<link href="employeeTableStyle.css" rel="stylesheet">';
 	
-	echo '<p><a href="http://localhost/addNewEmployee.php" target="_blank">Add a New Employee</a>
+	echo '<p><a href="http://10.122.38.71/addNewEmployee.php" target="_blank">Add a New Employee</a>
 		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/getEmployeeInfo.php" >Disable Delete</a>
+		<a href="http://10.122.38.71/getEmployeeInfo.php" >Disable Delete</a>
 		</p><br/>';
 
 
@@ -37,9 +37,9 @@ if($response){
 	while($row = mysqli_fetch_array($response))	{
 
 	    echo   '<tr>
-			<td align = "left"><a href="http://localhost/editExistingEmployee.php?id=',urlencode($row["id"]),'" target="_blank" style="text-decoration:none">' . $row['employeeID'] . '</a></td>
+			<td align = "left"><a href="http://10.122.38.71/editExistingEmployee.php?id=',urlencode($row["id"]),'" target="_blank" style="text-decoration:none">' . $row['employeeID'] . '</a></td>
 			<td align = "left">' . $row['wholeName'] . '</td>
-			<td align = "left"><a href="http://localhost/deleteEmployee.php?id=',urlencode($row["id"]),'" style="text-decoration:none, float:center">Delete</a></td>
+			<td align = "left"><a href="http://10.122.38.71/deleteEmployee.php?id=',urlencode($row["id"]),'" style="text-decoration:none, float:center">Delete</a></td>
 		   </tr>';
 	}
 

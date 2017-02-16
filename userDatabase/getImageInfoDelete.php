@@ -16,9 +16,9 @@ if($response){
 
 	echo '<link href="sourceCodeTableStyle.css" rel="stylesheet">';
 	
-	echo '<p><a href="http://localhost/addNewReleasedImage.php" target="_blank">New Released Image</a>
+	echo '<p><a href="http://10.122.38.71/addNewReleasedImage.php" target="_blank">New Released Image</a>
 		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/getImageInfo.php" >Disable Delete</a>
+		<a href="http://10.122.38.71/getImageInfo.php" >Disable Delete</a>
 		</p><br/>';
 
 	// Draw the table
@@ -33,9 +33,9 @@ if($response){
 	while($row = mysqli_fetch_array($response))	{
 
 	    echo   '<tr>
-			<td align = "left"><a href="http://localhost/displayExistingImage.php?id=',urlencode($row["id"]),'" target="_blank" style="text-decoration:none">' . $row['name'] . '</a></td>
+			<td align = "left"><a href="http://10.122.38.71/displayExistingImage.php?id=',urlencode($row["id"]),'" target="_blank" style="text-decoration:none">' . $row['name'] . '</a></td>
 			<td align = "left"><textarea disabled type="text" name="descriptionInput" rows="5" cols="70">' . $row['description'] . '</textarea></td>
-			<td align = "left"><a href="http://localhost/deleteReleasedImage.php?id=',urlencode($row["id"]),'" style="text-decoration:none, float:center">Delete</a></td>
+			<td align = "left"><a href="http://10.122.38.71/deleteReleasedImage.php?id=',urlencode($row["id"]),'" style="text-decoration:none, float:center">Delete</a></td>
 		   </tr>';
 	}
 

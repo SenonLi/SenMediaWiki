@@ -52,12 +52,12 @@ mysqli_close($databaseConnection);
 ?>
 
 
-<form action="http://localhost/submitEditedProject.php?id=<?php echo $id ?>" method="post">
+<form action="http://10.122.38.71/submitEditedProject.php?id=<?php echo $id ?>" method="post">
 
 	<P>
 		<b>Edit Project <font color="red"><?php echo "$projectName"  ?> </font></b>
 		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/displayExistingProject.php?id=<?php echo $id ?>" method="post">Disable Edit</a>
+		<a href="http://10.122.38.71/displayExistingProject.php?id=<?php echo $id ?>" method="post">Disable Edit</a>
 	</p>
 
 	<p> Release Name:  <input type="text" name="releaseNameInput" size="30" value="<?php echo $releaseName ?>"/> </p>

@@ -55,7 +55,7 @@ mysqli_close($databaseConnection);
 	<P>
 		<b>Edit Repo <font color="red"><?php echo "$name"  ?> </font></b>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/editExistingSourceCode.php?id=<?php echo $id ?>" method="post">Enable Edit</a>
+		<a href="http://10.122.38.71/editExistingSourceCode.php?id=<?php echo $id ?>" method="post">Enable Edit</a>
 	</p>
 
 	<p> Name:  <input disabled type="text" name="nameInput" size="30" value="<?php echo $name ?>"/> </p>
@@ -68,7 +68,7 @@ mysqli_close($databaseConnection);
 	<p>&nbsp;</p>
 	<p>&nbsp;</p>
 	<p>&nbsp;</p>
-	<p><a href="http://localhost/addNewSourceCode.php" target="_blank">New Source Code Repo</a>
+	<p><a href="http://10.122.38.71/addNewSourceCode.php" target="_blank">New Source Code Repo</a>
 		</p><br/>
 
 </form>

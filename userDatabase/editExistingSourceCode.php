@@ -50,15 +50,15 @@ mysqli_close($databaseConnection);
 ?>
 
 
-<form action="http://localhost/submitEditedSourceCode.php?id=<?php echo $id ?>" method="post">
+<form action="http://10.122.38.71/submitEditedSourceCode.php?id=<?php echo $id ?>" method="post">
 
 	<P>
 		<b>Edit Repo <font color="red"><?php echo "$name"  ?> </font></b>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/displayExistingSourceCode.php?id=<?php echo $id ?>" method="post">Disable Edit</a>
+		<a href="http://10.122.38.71/displayExistingSourceCode.php?id=<?php echo $id ?>" method="post">Disable Edit</a>
 	</p>
 
-	<p> Name:  <input type="text" name="nameInput" size="30" value="<?php echo $name ?>"/> </p>
+	<p> Source Name:  <input type="text" name="nameInput" size="30" value="<?php echo $name ?>"/> </p>
 	<p> Description: </p>
 	<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea type="text" name="descriptionInput" rows="6" cols="70"><?php echo $description ?></textarea> </p>
 	<p> Build Instruction: </p>

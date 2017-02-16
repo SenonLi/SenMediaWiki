@@ -3,7 +3,7 @@
 <title>Add a New Patch</title>
 </head>
 <body>
-<form action="http://localhost/submitNewPatchInfo.php" method="post">
+<form action="http://10.122.38.71/submitNewPatchInfo.php" method="post">
 
 	<b>Add a New Patch</b>
 

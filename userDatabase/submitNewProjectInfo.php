@@ -101,7 +101,7 @@ if(isset($_POST['submitButton']))	{
 
 ?>
 
-<form action="http://localhost/submitNewProjectInfo.php" method="post">
+<form action="http://10.122.38.71/submitNewProjectInfo.php" method="post">
 
 	<b>Add a New Project</b>
 

@@ -14,22 +14,23 @@ $response = @mysqli_query($databaseConnection, $employeeQuery);
 // If the query executed properly proceed
 if($response){
 
-	echo '<link href="employeeTableStyle.css" rel="stylesheet">';
+	echo '<link href="sourceCodeTableStyle.css" rel="stylesheet">';
 	
-	echo '<p><a href="http://localhost/addNewProject.php" target="_blank">Add a New Project</a>
+	echo '<p><a href="http://10.122.38.71/addNewProject.php" target="_blank">Add a New Project</a>
 		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/getProjectReposDelete.php" >Enable Delete</a>
+		<a href="http://10.122.38.71/getProjectReposDelete.php" >Enable Delete</a>
 		</p><br/>';
 
 	// Draw the table
-	echo '<table class="hover" align="left" cellspacing="0" cellpadding="10">';
+	echo '<table class="css-serial" align="left" cellspacing="0" cellpadding="10">';
 
 	// mysqli_fetch_array will return a row of data from the query
 	// until no further data is available
 	while($row = mysqli_fetch_array($response))	{
 
 	    echo   '<tr>
-			<td align = "left"><a href="http://localhost/displayExistingProject.php?id=',urlencode($row["id"]),'" target="_blank" style="text-decoration:none">' . $row['projectName'] . '</a></td>
+			<td></td>
+			<td align = "left"><a href="http://10.122.38.71/displayExistingProject.php?id=',urlencode($row["id"]),'" target="_blank" style="text-decoration:none">' . $row['projectName'] . '</a></td>
 		   </tr>';
 	}
 

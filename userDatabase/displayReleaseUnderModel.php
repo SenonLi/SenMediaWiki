@@ -22,18 +22,18 @@ if($response){
 
 	echo '<link href="sourceCodeTableStyle.css" rel="stylesheet">';
 
-	echo '<p><a href="http://localhost/addNewRelease.php" target="_blank">Add a New Release</a>
+	echo '<p><a href="http://10.122.38.71/addNewRelease.php" target="_blank">Add a New Release</a>
 		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/displayReleaseUnderModelDelete.php?model='. $model .'" >Enable Delete</a>
+		<a href="http://10.122.38.71/displayReleaseUnderModelDelete.php?model='. $model .'" >Enable Delete</a>
 		</p>';
 	echo '<p> Sort by model <font color="red">'. $model .'</p>';
 	// Draw the table
 	echo '<table class="css-serial" align="left" border="1" cellspacing="0" cellpadding="10">
 		<tr>
 			<th align = "left">	<b>#</b> </th>
-			<td align = "left">	<b>Release	</b> </td>		
-			<td align = "left">	<b>Source  </b> </td>
-			<td align = "left">	<b>Image  </b> </td>
+			<td align = "left">	<b>Release Name	</b> </td>		
+			<td align = "left">	<b>Source Name </b> </td>
+			<td align = "left">	<b>Image Name  </b> </td>
 			<td align = "left">	<b>Projects  </b> </td>
 		</tr>';
 
@@ -45,11 +45,11 @@ if($response){
 
 	    echo   '<tr>
 			<td></td>
-			<td align = "left"><a href="http://localhost/editExistingRelease.php?id=',urlencode($row["id"]),'" target="_blank" style="text-decoration:none">' . $row['releaseName'] . '</a></td>
-			<td align = "left"><a href="http://localhost/displaySourceByName.php?name=',urlencode($row["sourceName"]),'" target="_blank" style="text-decoration:none">' . $row['sourceName'] . '</a></td>
-			<td align = "left"><a href="http://localhost/displayImageByName.php?name=',urlencode($row["imageName"]),'" target="_blank" style="text-decoration:none">' . $row['imageName'] . '</a></td>
+			<td align = "left"><a href="http://10.122.38.71/editExistingRelease.php?id=',urlencode($row["id"]),'" target="_blank" style="text-decoration:none">' . $row['releaseName'] . '</a></td>
+			<td align = "left"><a href="http://10.122.38.71/displaySourceByName.php?name=',urlencode($row["sourceName"]),'" target="_blank" style="text-decoration:none">' . $row['sourceName'] . '</a></td>
+			<td align = "left"><a href="http://10.122.38.71/displayImageByName.php?name=',urlencode($row["imageName"]),'" target="_blank" style="text-decoration:none">' . $row['imageName'] . '</a></td>
 
-			<td align = "left"><a href="http://localhost/displayProjectsByRelease.php?releaseName=',urlencode($row["releaseName"]),'" target="_blank" style="text-decoration:none">Total: &nbsp;&nbsp; ' . $row['total'] . '</a></td>
+			<td align = "left"><a href="http://10.122.38.71/displayProjectsByRelease.php?releaseName=',urlencode($row["releaseName"]),'" target="_blank" style="text-decoration:none">Total: &nbsp;&nbsp; ' . $row['total'] . '</a></td>
 
 		   </tr>';
 	}

@@ -3,7 +3,7 @@
 <title>Add a New Device</title>
 </head>
 <body>
-<form action="http://localhost/submitNewDeviceInfo.php" method="post">
+<form action="http://10.122.38.71/submitNewDeviceInfo.php" method="post">
 
 	<b>Add a New Device</b>
 

@@ -49,12 +49,12 @@ mysqli_close($databaseConnection);
 ?>
 
 
-<form action="http://localhost/submitEditedDevice.php?id=<?php echo $id ?>" method="post">
+<form action="http://10.122.38.71/submitEditedDevice.php?id=<?php echo $id ?>" method="post">
 
 	<P>
 		<b>Edit a <font color="red"><?php echo "$model"  ?> </font> Device</b>
 		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/displayExistingDevice.php?id=<?php echo $id ?>" method="post">Disable Edit</a>
+		<a href="http://10.122.38.71/displayExistingDevice.php?id=<?php echo $id ?>" method="post">Disable Edit</a>
 	</p>
 
 	<p> Device ID:  <input type="text" name="deviceIDInput" size="30" value="<?php echo $deviceID ?> "/> </p>

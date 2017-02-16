@@ -16,9 +16,9 @@ if($response){
 
 	echo '<link href="sourceCodeTableStyle.css" rel="stylesheet">';
 	
-	echo '<p><a href="http://localhost/addNewSourceCode.php" target="_blank">New Source Code Repo</a>
+	echo '<p><a href="http://10.122.38.71/addNewSourceCode.php" target="_blank">New Source Code Repo</a>
 		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/getSourceCodeReposDelete.php" >Enable Delete</a>
+		<a href="http://10.122.38.71/getSourceCodeReposDelete.php" >Enable Delete</a>
 		</p><br/>';
 
 	// Draw the table
@@ -33,7 +33,7 @@ if($response){
 	while($row = mysqli_fetch_array($response))	{
 
 	    echo   '<tr>
-			<td align = "left"><a href="http://localhost/displayExistingSourceCode.php?id=',urlencode($row["id"]),'" target="_blank" style="text-decoration:none">' . $row['name'] . '</a></td>
+			<td align = "left"><a href="http://10.122.38.71/displayExistingSourceCode.php?id=',urlencode($row["id"]),'" target="_blank" style="text-decoration:none">' . $row['name'] . '</a></td>
 			<td align = "left"><textarea disabled type="text" name="descriptionInput" rows="5" cols="70">' . $row['description'] . '</textarea></td>
 		   </tr>';
 	}

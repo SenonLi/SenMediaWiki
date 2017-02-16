@@ -19,9 +19,9 @@ if($response){
 
 	echo '<link href="employeeTableStyle.css" rel="stylesheet">';
 
-	echo '<p><a href="http://localhost/addNewDevice.php" target="_blank">Add a New Device</a>
+	echo '<p><a href="http://10.122.38.71/addNewDevice.php" target="_blank">Add a New Device</a>
 		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/sortByOwnerNameDelete.php?id='. $id .'" >Enable Delete</a>
+		<a href="http://10.122.38.71/sortByOwnerNameDelete.php?id='. $id .'" >Enable Delete</a>
 		</p><br/>';
 
 
@@ -43,9 +43,9 @@ if($response){
 
 	    echo   '<tr>
 			<td align = "left">' . $row['ownerName'] . '</td>
-			<td align = "left"><a href="http://localhost/displayExistingEmployee.php?id=',urlencode($row["empID"]),'" target="_blank" style="text-decoration:none">' . $row['ownerID'] . '</a></td>
-			<td align = "left"><a href="http://localhost/displayExistingDevice.php?id=',urlencode($row["devID"]),'" target="_blank" style="text-decoration:none">' . $row['deviceID'] . '</a></td>
-			<td align = "left"><a href="http://localhost/sortByDeviceModel.php?model=',urlencode($row["model"]),'" style="text-decoration:none">' . $row['model'] . '</a></td>			
+			<td align = "left"><a href="http://10.122.38.71/displayExistingEmployee.php?id=',urlencode($row["empID"]),'" target="_blank" style="text-decoration:none">' . $row['ownerID'] . '</a></td>
+			<td align = "left"><a href="http://10.122.38.71/displayExistingDevice.php?id=',urlencode($row["devID"]),'" target="_blank" style="text-decoration:none">' . $row['deviceID'] . '</a></td>
+			<td align = "left"><a href="http://10.122.38.71/sortByDeviceModel.php?model=',urlencode($row["model"]),'" style="text-decoration:none">' . $row['model'] . '</a></td>			
 
 
 		   </tr>';

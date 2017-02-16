@@ -36,18 +36,12 @@ if(isset($_POST['submitButton']))	{
 		$imageName = trim($_POST['imageNameInput']);
 	}
 
-	if(empty($_POST['patchInput']))	{
-		$data_missing[] = 'Patch';
-	} else 	{
-		$patch = trim($_POST['patchInput']);
-	}
-
 
 	if(empty($data_missing))	{
 		
 		require_once('mySqlConnect.php');
 		
-		$insertQuery = "UPDATE huawei_releaseView SET model='$model', releaseName='$releaseName', sourceName='$sourceName', imageName='$imageName', patch='$patch' WHERE id='$id'";
+		$insertQuery = "UPDATE huawei_releaseView SET model='$model', releaseName='$releaseName', sourceName='$sourceName', imageName='$imageName' WHERE id='$id'";
 	
 #		echo "$insertQuery <br/><br/>";
 
@@ -91,17 +85,16 @@ if(isset($_POST['submitButton']))	{
 
 ?>
 
-<form action="http://localhost/submitEditedRelease.php?id=<?php echo $id ?>" method="post">
+<form action="http://10.122.38.71/submitEditedRelease.php?id=<?php echo $id ?>" method="post">
 
 	<P>
 		<b>Edit Release <font color="red"><?php echo "$releaseName"  ?> </font></b>
 	</p>
 
 	<p> Model:  <input type="text" name="modelInput" size="70" value="<?php echo $model ?>"/> </p>
-	<p> Release:  <input type="text" name="releaseNameInput" size="30" value="<?php echo $releaseName ?>"/> </p>
-	<p> Source:  <input type="text" name="sourceNameInput" size="70" value="<?php echo $sourceName ?>"/> </p>
-	<p> Image:  <input type="text" name="imageNameInput" size="70" value="<?php echo $imageName ?>"/> </p>
-	<p> Patch:  <input type="text" name="patchInput" size="70" value="<?php echo $patch ?>"/> </p>
+	<p> Release Name:  <input type="text" name="releaseNameInput" size="30" value="<?php echo $releaseName ?>"/> </p>
+	<p> Source Name:  <input type="text" name="sourceNameInput" size="70" value="<?php echo $sourceName ?>"/> </p>
+	<p> Image Name:  <input type="text" name="imageNameInput" size="70" value="<?php echo $imageName ?>"/> </p>
 
 
 	<p>	

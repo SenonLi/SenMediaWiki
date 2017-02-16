@@ -36,6 +36,7 @@ if(isset($_POST['submitButton']))	{
 		$data_missing[] = 'Tag';
 	} else 	{
 		$tag = trim($_POST['tagInput']);
+		$_tag = str_replace(array('\\', "\0", "\n", "\r", "'", '"', "\x1a"), array('\\\\', '\\0', '\\n', '\\r', "\\'", '\\"', '\\Z'), $tag);
 	}
 
 
@@ -44,7 +45,7 @@ if(isset($_POST['submitButton']))	{
 		
 		require_once('mySqlConnect.php');
 		
-		$updateQuery = "UPDATE huawei_releasedImages SET name='$name', description='$_description', instruction='$_instruction', tag='$tag' WHERE id='$id'";
+		$updateQuery = "UPDATE huawei_releasedImages SET name='$name', description='$_description', instruction='$_instruction', tag='$_tag' WHERE id='$id'";
 
 #		echo "$updateQuery <br/><br/>";
 
@@ -88,19 +89,19 @@ if(isset($_POST['submitButton']))	{
 
 ?>
 
-<form action="http://localhost/submitEditedImage.php?id=<?php echo $id ?>" method="post">
+<form action="http://10.122.38.71/submitEditedImage.php?id=<?php echo $id ?>" method="post">
 
 	<P>
 		<b>Edit Image <font color="red"><?php echo $name  ?> </font></b>
 		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/displayExistingImage.php?id=<?php echo $id ?>" method="post">Disable Edit</a>
+		<a href="http://10.122.38.71/displayExistingImage.php?id=<?php echo $id ?>" method="post">Disable Edit</a>
 	</p>
 
 	<p> Name:  <input type="text" name="nameInput" size="30" value="<?php echo $name ?>"/> </p>
 	<p> Description:</p>
-	<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea type="text" name="descriptionInput" rows="6" cols="70"><?php echo $description ?></textarea> </p>
+	<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea type="text" name="descriptionInput" rows="4" cols="70"><?php echo $description ?></textarea> </p>
 	<p> Instruction:</p>
-	<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea type="text" name="instructionInput" rows="6" cols="70"><?php echo $instruction ?></textarea> </p>
+	<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea type="text" name="instructionInput" rows="10" cols="70"><?php echo $instruction ?></textarea> </p>
 	<p> Tag:  <input type="text" name="tagInput" size="70" value="<?php echo $tag ?>"/> </p>
 
 

@@ -84,7 +84,7 @@ if(isset($_POST['submitButton']))	{
 
 ?>
 
-<form action="http://localhost/submitNewEmployeeInfo.php" method = "post">
+<form action="http://10.122.38.71/submitNewEmployeeInfo.php" method = "post">
 
 	<b>Add a New Employee</b>
 

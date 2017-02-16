@@ -55,10 +55,10 @@ mysqli_close($databaseConnection);
 	<P>
 		<b>Edit Repo <font color="red"><?php echo "$name"  ?> </font></b>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/editExistingSourceCode.php?id=<?php echo $id ?>" method="post">Enable Edit</a>
+		<a href="http://10.122.38.71/editExistingSourceCode.php?id=<?php echo $id ?>" method="post">Enable Edit</a>
 	</p>
 
-	<p> Name:  <input disabled type="text" name="nameInput" size="30" value="<?php echo $name ?>"/> </p>
+	<p> Source Name:  <input disabled type="text" name="nameInput" size="30" value="<?php echo $name ?>"/> </p>
 	<p> Description: </p>
 	<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea disabled type="text" name="descriptionInput" rows="6" cols="70"><?php echo $description ?></textarea> </p>
 	<p> Build Instruction: </p>

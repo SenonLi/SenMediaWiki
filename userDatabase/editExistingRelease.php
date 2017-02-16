@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Edit Employee</title>
+<title>Edit Release</title>
 </head>
 <body>
 
@@ -11,7 +11,7 @@ $id = $_GET['id'];
 require_once('mySqlConnect.php');
 
 // Create a query for the database
-$employeeQuery = "SELECT model, releaseName, sourceName, imageName, patch FROM huawei_releaseView where id = '$id'";
+$employeeQuery = "SELECT model, releaseName, sourceName, imageName FROM huawei_releaseView where id = '$id'";
 
 #	echo "$employeeQuery";
 
@@ -29,7 +29,7 @@ if($response){
 		$releaseName = $row['releaseName']; 
 		$sourceName = $row['sourceName']; 
 		$imageName = $row['imageName']; 
-		$patch = $row['patch']; 
+#		$patch = $row['patch']; 
 	}
 
 
@@ -49,17 +49,16 @@ mysqli_close($databaseConnection);
 ?>
 
 
-<form action="http://localhost/submitEditedRelease.php?id=<?php echo $id ?>" method="post">
+<form action="http://10.122.38.71/submitEditedRelease.php?id=<?php echo $id ?>" method="post">
 
 	<P>
 		<b>Edit Release <font color="red"><?php echo "$releaseName"  ?> </font></b>
 	</p>
 
 	<p> Model:  <input type="text" name="modelInput" size="70" value="<?php echo $model ?>"/> </p>
-	<p> Release:  <input type="text" name="releaseNameInput" size="30" value="<?php echo $releaseName ?>"/> </p>
-	<p> Source:  <input type="text" name="sourceNameInput" size="70" value="<?php echo $sourceName ?>"/> </p>
-	<p> Image:  <input type="text" name="imageNameInput" size="70" value="<?php echo $imageName ?>"/> </p>
-	<p> Patch:  <input type="text" name="patchInput" size="70" value="<?php echo $patch ?>"/> </p>
+	<p> Release Name:  <input type="text" name="releaseNameInput" size="30" value="<?php echo $releaseName ?>"/> </p>
+	<p> Source Name:  <input type="text" name="sourceNameInput" size="70" value="<?php echo $sourceName ?>"/> </p>
+	<p> Image Name:  <input type="text" name="imageNameInput" size="70" value="<?php echo $imageName ?>"/> </p>
 
 
 	<p>	

@@ -36,6 +36,7 @@ if(isset($_POST['submitButton']))	{
 		$data_missing[] = 'Location';
 	} else 	{
 		$location = trim($_POST['locationInput']);
+		$_location = str_replace(array('\\', "\0", "\n", "\r", "'", '"', "\x1a"), array('\\\\', '\\0', '\\n', '\\r', "\\'", '\\"', '\\Z'), $location);
 	}
 
 
@@ -44,7 +45,7 @@ if(isset($_POST['submitButton']))	{
 		
 		require_once('mySqlConnect.php');
 		
-		$updateQuery = "UPDATE huawei_sourceCodeRepo SET name='$name', description='$_description', buildInstruction='$_buildInstruction', location='$location' WHERE id='$id'";
+		$updateQuery = "UPDATE huawei_sourceCodeRepo SET name='$name', description='$_description', buildInstruction='$_buildInstruction', location='$_location' WHERE id='$id'";
 
 #		echo "$updateQuery <br/><br/>";
 
@@ -88,15 +89,15 @@ if(isset($_POST['submitButton']))	{
 
 ?>
 
-<form action="http://localhost/submitEditedSourceCode.php?id=<?php echo $id ?>" method="post">
+<form action="http://10.122.38.71/submitEditedSourceCode.php?id=<?php echo $id ?>" method="post">
 
 	<P>
 		<b>Edit Repo <font color="red"><?php echo $name  ?> </font></b>
 		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/displayExistingSourceCode.php?id=<?php echo $id ?>" method="post">Disable Edit</a>
+		<a href="http://10.122.38.71/displayExistingSourceCode.php?id=<?php echo $id ?>" method="post">Disable Edit</a>
 	</p>
 
-	<p> Name:  <input type="text" name="nameInput" size="30" value="<?php echo $name ?>"/> </p>
+	<p> Source Name:  <input type="text" name="nameInput" size="30" value="<?php echo $name ?>"/> </p>
 	<p> Description:</p>
 	<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea type="text" name="descriptionInput" rows="6" cols="70"><?php echo $description ?></textarea> </p>
 	<p> Build Instruction:</p>

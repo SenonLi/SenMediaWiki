@@ -88,7 +88,7 @@ if(isset($_POST['submitButton']))	{
 
 ?>
 
-<form action="http://localhost/submitNewSourceCode.php" method="post">
+<form action="http://10.122.38.71/submitNewSourceCode.php" method="post">
 
 	<b>Add a New Source Code Repo</b>
 

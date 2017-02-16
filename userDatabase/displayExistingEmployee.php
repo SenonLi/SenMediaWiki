@@ -54,7 +54,7 @@ mysqli_close($databaseConnection);
 	<P>
 		<b>Edit Employee <font color="red"><?php echo "$firstName $middleName $lastName"  ?> </font></b>
 		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/editExistingEmployee.php?id=<?php echo $id ?>" method="post">Enable Edit</a>
+		<a href="http://10.122.38.71/editExistingEmployee.php?id=<?php echo $id ?>" method="post">Enable Edit</a>
 	</p>
 
 	<p> Employee ID:  <input disabled type="text" name="employeeIDInput" size="30" value="<?php echo $employeeID ?> "/> </p>

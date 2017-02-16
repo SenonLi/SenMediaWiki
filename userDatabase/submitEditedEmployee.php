@@ -84,12 +84,12 @@ if(isset($_POST['submitButton']))	{
 
 ?>
 
-<form action="http://localhost/submitEditedEmployee.php?id=<?php echo $id ?>" method="post">
+<form action="http://10.122.38.71/submitEditedEmployee.php?id=<?php echo $id ?>" method="post">
 
 	<P>
 		<b>Edit Employee <font color="red"><?php echo "$firstName $middleName $lastName"  ?> </font></b>
 		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/displayExistingEmployee.php?id=<?php echo $id ?>" method="post">Disable Edit</a>
+		<a href="http://10.122.38.71/displayExistingEmployee.php?id=<?php echo $id ?>" method="post">Disable Edit</a>
 	</p>
 
 	<p> Employee ID:  <input type="text" name="employeeIDInput" size="30" value="<?php echo $emp_ID ?> "/> </p>

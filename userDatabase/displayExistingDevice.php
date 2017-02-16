@@ -54,7 +54,7 @@ mysqli_close($databaseConnection);
 	<P>
 		<b>Edit a <font color="red"><?php echo "$model"  ?> </font> Device</b>
 		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/editExistingDevice.php?id=<?php echo $id ?>" method="post">Enable Edit</a>
+		<a href="http://10.122.38.71/editExistingDevice.php?id=<?php echo $id ?>" method="post">Enable Edit</a>
 	</p>
 
 	<p> Device ID:  <input disabled type="text" name="deviceIDInput" size="30" value="<?php echo $deviceID ?> "/> </p>

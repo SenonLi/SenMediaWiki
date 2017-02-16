@@ -81,7 +81,7 @@ mysqli_close($databaseConnection);
 	<P>
 		<b>Edit Project <font color="red"><?php echo "$projectName"  ?> </font></b>
 		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/editExistingProject.php?id=<?php echo $id ?>" method="post">Enable Edit</a>
+		<a href="http://10.122.38.71/editExistingProject.php?id=<?php echo $id ?>" method="post">Enable Edit</a>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	(Tip: Refresh after every edit!)
 	</p>
@@ -95,9 +95,9 @@ mysqli_close($databaseConnection);
 	<p> Patches: </p>
 
 	<dir style="width: 100%; ">
-		<p><a href="http://localhost/addNewPatch.php" target="_blank">Add a New Patch</a>
+		<p><a href="http://10.122.38.71/addNewPatch.php" target="_blank">Add a New Patch</a>
 			&nbsp;&nbsp;&nbsp;&nbsp;
-			<a href="http://localhost/displayExistingProject.php?id=<?php echo $id ?>" >Disable Patch Delete</a>
+			<a href="http://10.122.38.71/displayExistingProject.php?id=<?php echo $id ?>" >Disable Patch Delete</a>
 		</p>
 	</dir>
 
@@ -122,11 +122,11 @@ mysqli_close($databaseConnection);
 			    echo   '<tr>
 					<td></td>
 					<!-- Meliodas
-					<td align = "left"><a href="http://localhost/displayExistingPatch.php?releaseName='.$releaseName.'&projectName='.$projectName.'&patchName=',urlencode($patchRow["patchName"]),'" target="_blank" style="text-decoration:none">' . $patchRow['patchName'] . '</a></td>
+					<td align = "left"><a href="http://10.122.38.71/displayExistingPatch.php?releaseName='.$releaseName.'&projectName='.$projectName.'&patchName=',urlencode($patchRow["patchName"]),'" target="_blank" style="text-decoration:none">' . $patchRow['patchName'] . '</a></td>
 					-->
-					<td align = "left"><a href="http://localhost/displayExistingPatch.php?id=',urlencode($patchRow["id"]),'" target="_blank" style="text-decoration:none">' . $patchRow['patchName'] . '</a></td>
+					<td align = "left"><a href="http://10.122.38.71/displayExistingPatch.php?id=',urlencode($patchRow["id"]),'" target="_blank" style="text-decoration:none">' . $patchRow['patchName'] . '</a></td>
 					<td align = "left"><textarea disabled type="text" name="descriptionInput" rows="3" cols="70">' . $patchRow['description'] . '</textarea></td>
-					<td align = "left"><a href="http://localhost/deletePatch.php?id=',urlencode($patchRow["id"]),'" style="text-decoration:none, float:center">Delete</a></td>
+					<td align = "left"><a href="http://10.122.38.71/deletePatch.php?id=',urlencode($patchRow["id"]),'" style="text-decoration:none, float:center">Delete</a></td>
 				   </tr>';
 
 

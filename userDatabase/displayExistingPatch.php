@@ -52,9 +52,9 @@ mysqli_close($databaseConnection);
 <form method="post">
 
 	<p>
-		<a href="http://localhost/addNewPatch.php" target="_blank">Add New Patch</a>
+		<a href="http://10.122.38.71/addNewPatch.php" target="_blank">Add New Patch</a>
 		&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/editExistingPatch.php?id=<?php echo $id ?>">Enable Edit</a>
+		<a href="http://10.122.38.71/editExistingPatch.php?id=<?php echo $id ?>">Enable Edit</a>
 
 	</p>
 

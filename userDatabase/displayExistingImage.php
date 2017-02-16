@@ -53,14 +53,14 @@ mysqli_close($databaseConnection);
 	<P>
 		<b>Edit Image <font color="red"><?php echo "$name"  ?> </font></b>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://localhost/editExistingImage.php?id=<?php echo $id ?>" method="post">Enable Edit</a>
+		<a href="http://10.122.38.71/editExistingImage.php?id=<?php echo $id ?>" method="post">Enable Edit</a>
 	</p>
 
 	<p> Name:  <input disabled type="text" name="nameInput" size="30" value="<?php echo $name ?>"/> </p>
 	<p> Description: </p>
-	<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea disabled type="text" name="descriptionInput" rows="6" cols="70"><?php echo $description ?></textarea> </p>
+	<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea disabled type="text" name="descriptionInput" rows="4" cols="70"><?php echo $description ?></textarea> </p>
 	<p> Instruction: </p>
-	<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea disabled type="text" name="instructionInput" rows="6" cols="70"><?php echo $instruction ?></textarea> </p>
+	<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea disabled type="text" name="instructionInput" rows="10" cols="70"><?php echo $instruction ?></textarea> </p>
 	<p> Path:  <input disabled type="text" name="tagInput" size="70" value="<?php echo $tag ?>"/> </p>
 
 

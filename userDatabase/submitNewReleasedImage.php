@@ -88,7 +88,7 @@ if(isset($_POST['submitButton']))	{
 
 ?>
 
-<form action="http://localhost/submitNewReleasedImage.php" method="post">
+<form action="http://10.122.38.71/submitNewReleasedImage.php" method="post">
 
 	<b>Add a Released Image</b>
 
